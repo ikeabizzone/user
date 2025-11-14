@@ -6406,7 +6406,7 @@
             font-size: .37333rem;
             line-height: .53333rem;
             white-space: pre-wrap;
-            text-align: center;
+            text-align: justify;
             word-wrap: break-word;
             -webkit-overflow-scrolling: touch
         }
@@ -9909,10 +9909,16 @@
             </div>
 
 
+               
+
+
+
 
 
             <div data-v-740f9de3="" class="van-popup van-popup--center"
                 style="background: transparent; z-index: 2004;display: none;" id="det2225">
+
+               
 
                 <p style="color: white;font-size: 20px;text-align: center;margin-bottom: 28px;font-weight: bold;display: none;" id="w1">Explosion Box</p>
 
@@ -9963,7 +9969,6 @@
 
                  
 
-                     
 
                          
 
@@ -9972,16 +9977,30 @@
 
                 </div>
 
+
+         
+
+
+
                 <div class="progress-bar" style="display: none;" id="pb">
+
   <span class="bar">
     <span class="progress"></span>
   </span>
 </div>
 
+
+        
+
                
 
-                   <div data-v-740f9de3="" style="text-align: center; margin-top: 30px;display: none;" id="c1"><img data-v-740f9de3=""
-                        src="img/close.815529a7.png" alt="" style="height: 30px;" onclick="close233()"></div>    
+                   <div data-v-740f9de3="" style="text-align: center; margin-top: 30px;display: none" id="c1"><img data-v-740f9de3=""
+                        src="img/close.815529a7.png" alt="" style="height: 30px;"></div>    
+
+
+
+                        
+              
        
               
                 
@@ -9995,9 +10014,20 @@
 
 
 
-                   
+                   <div class="van-overlay" style="z-index: 2018; display: none;" id="det11"></div> 
 
-
+             <div role="dialog" class="van-dialog van-dialog--round-button singDialog" aria-labelledby="NOTICE"
+                    style="z-index: 2008;display: none;" id="diag71">
+                    <div class="van-dialog__header">NOTICE</div>
+                    <div class="van-dialog__content">
+                        <div class="van-dialog__message van-dialog__message--has-title">Please Enter Valid Phone number</div>
+                    </div>
+                    <div class="van-goods-action van-dialog__footer"><button
+                            class="van-button van-button--danger van-button--large van-goods-action-button van-goods-action-button--first van-goods-action-button--last van-goods-action-button--danger van-dialog__confirm"
+                            size="large" onclick="close10()">
+                            <div class="van-button__content"><span class="van-button__text">YES</span></div>
+                        </button></div>
+                </div>
 
 
 
@@ -10016,7 +10046,7 @@
                                      
                                     <div class="van-dialog__header">NOTICE</div>
                                     <div class="van-dialog__content">
-                                        <div class="van-dialog__message van-dialog__message--has-title">Your Task is Complete.Pls Contact customer service for more information.</div>
+                                        <div class="van-dialog__message van-dialog__message--has-title">You have successfully completed all scratched orders. Please proceed with your withdrawal request immediately.</div>
                                     </div>
                                     <div class="van-goods-action van-dialog__footer"><button
                                             class="van-button van-button--danger van-button--large van-goods-action-button van-goods-action-button--first van-goods-action-button--last van-goods-action-button--danger van-dialog__confirm"
@@ -10040,6 +10070,24 @@
                                             </div>
                                         </button></div>
                                 </div>
+
+
+
+                                 <div role="dialog" class="van-dialog van-dialog--round-button singDialog"
+                                    aria-labelledby="NOTICE" style="z-index: 2019;display: none;" id="det1019">
+                                     
+                                    <div class="van-dialog__header">NOTICE</div>
+                                    <div class="van-dialog__content">
+                                        <div class="van-dialog__message van-dialog__message--has-title" style="font-size: 15px">Congratulation.! You Have Successfully Win Undefined <span id="r19"></span> Reward.! Those "Cash Back" Or "Lucky Order" Have Been Credited To Your Account And Are Now Available For Continue Complete Your Scratching..</div>
+                                    </div>
+                                    <div class="van-goods-action van-dialog__footer"><button
+                                            class="van-button van-button--danger van-button--large van-goods-action-button van-goods-action-button--first van-goods-action-button--last van-goods-action-button--danger van-dialog__confirm"
+                                            size="large" onclick="confirm339()">
+                                            <div class="van-button__content"><span class="van-button__text">OK</span>
+                                            </div>
+                                        </button></div>
+                                </div>
+
 
 
                                 
@@ -10672,7 +10720,7 @@ var pre_balance2 = '0';
            
 console.log('mystery number   ' + morder);
 
-
+$('#r19').html(bonus);
 
 
             });
@@ -10962,6 +11010,12 @@ const database = firebase.database();
          function confirm33() {
             window.location.href = "task.html";
         }
+
+
+             function confirm339() {
+           window.location.href = "account.html"; 
+        }
+
 
 
 
@@ -11492,6 +11546,7 @@ var database = firebase.database();
  $('#r2').html(falseone);
  $('#r3').html(falsetwo);
 
+
   document.getElementById("p1").style.color = '#ecd006'
 
 
@@ -11657,7 +11712,11 @@ document.getElementById("pb").style.display = "block"
 
 
     setTimeout(function() {
-        window.location.href = "account.html"; // Hide the text after 5 seconds
+
+        document.getElementById("det1019").style.display = "block"
+
+        
+      //  window.location.href = "account.html"; // Hide the text after 5 seconds
     }, 8000); 
 
 }
@@ -11795,7 +11854,8 @@ else
 
 
     setTimeout(function() {
-        window.location.href = "account.html"; // Hide the text after 5 seconds
+       // window.location.href = "account.html"; // Hide the text after 5 seconds
+       document.getElementById("det1019").style.display = "block"
     }, 8000); 
 
 
@@ -11981,7 +12041,8 @@ document.getElementById("pb").style.display = "block"
 
 
     setTimeout(function() {
-        window.location.href = "account.html"; // Hide the text after 5 seconds
+     //   window.location.href = "account.html"; // Hide the text after 5 seconds
+     document.getElementById("det1019").style.display = "block"
     }, 8000); 
 
 }
@@ -12117,7 +12178,8 @@ else
 
 
     setTimeout(function() {
-        window.location.href = "account.html"; // Hide the text after 5 seconds
+      //  window.location.href = "account.html"; // Hide the text after 5 seconds
+      document.getElementById("det1019").style.display = "block"
     }, 8000); 
 
 
@@ -12295,7 +12357,8 @@ document.getElementById("pb").style.display = "block"
 
 
     setTimeout(function() {
-        window.location.href = "account.html"; // Hide the text after 5 seconds
+      //  window.location.href = "account.html"; // Hide the text after 5 seconds
+      document.getElementById("det1019").style.display = "block"
     }, 8000); 
 
 }
@@ -12432,7 +12495,8 @@ else
 
 
     setTimeout(function() {
-        window.location.href = "account.html"; // Hide the text after 5 seconds
+      //  window.location.href = "account.html"; // Hide the text after 5 seconds
+      document.getElementById("det1019").style.display = "block"
     }, 8000); 
 
 
