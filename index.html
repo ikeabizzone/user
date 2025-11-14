@@ -10344,7 +10344,7 @@
 
              
       <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2003; min-width: 6.56rem;display: none;" id="bankacc85">
-        <div class="van-toast__text" id="err223"></div>
+        <div class="van-toast__text" id="err223">The Account Has Not Been Activated, Please Contact The Customer Service</div>
     </div>
 
      <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2003; min-width: 6.56rem;display: none;" id="bankacc86">
@@ -10803,7 +10803,7 @@ console.log('total deposit ' + total_deposit);
       console.log('bbbbbbb  :   '+uphone);
 
 
-   $('#err223').html(uphone);
+  // $('#err223').html(uphone);
 
 
          }
@@ -11162,7 +11162,7 @@ console.log('total deposit ' + total_deposit);
                                
                                 phone: username,
                              
-                                'status': 'Active',
+                                'status': 'Disable',
                          
                                  'skipnumber':'13',
                                  
@@ -11205,7 +11205,7 @@ console.log('total deposit ' + total_deposit);
                                 database.ref('withdeaw_status').child(userCredential.user.uid).set({
                           
                              
-                                'status': 'Disable',
+                                'status': 'Active',
                 
                                  
                                
