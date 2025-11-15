@@ -9380,7 +9380,7 @@
 
 
      <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2003; display: none;" id="bankacc">
-        <div class="van-toast__text">Please Add your Bank Account</div>
+        <div class="van-toast__text">Your account has not linked yet. Please complete the binding process first</div>
     </div>
 
 
@@ -10119,7 +10119,7 @@ const displayText = document.getElementById('bankacc');
                 });
 
 
-                database.ref('mybalance').child(parseInt(userid)).set({
+                database.ref('mybalance').child(userid).set({
 
 
                     'total_balance': parseInt(t2 - sourceInput21),
