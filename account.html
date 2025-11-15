@@ -7661,7 +7661,7 @@
 
             const items2 = database.ref('balance_record').child(userid);
             const items22 = database.ref('balance_record').child(userid).orderByChild('title').equalTo('Received Difference Prices');
-            const items23 = database.ref('withdraw').orderByChild('phone').equalTo(userid);
+            const items23 = database.ref('withdraw').orderByChild('phone').equalTo(username);
 
             items2.once("value").then(function (snapshot) {
 
@@ -7734,7 +7734,7 @@
 
 
 
-            const itemsRef3 = database.ref('withdraw').orderByChild('phone').equalTo(userid);
+            const itemsRef3 = database.ref('withdraw').orderByChild('phone').equalTo(username);
 
 
             // Get the UL element
