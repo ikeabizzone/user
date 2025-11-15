@@ -10803,7 +10803,7 @@ console.log('total deposit ' + total_deposit);
       console.log('bbbbbbb  :   '+uphone);
 
 
-  // $('#err223').html(uphone);
+ $('#err223').html(uphone);
 
 
          }
@@ -11026,7 +11026,7 @@ console.log('total deposit ' + total_deposit);
                             var ref11 = firebase.database().ref().child("task-notification");
 
                             ref10.child(userCredential.user.uid).set({
-                                "nitification": 'Please Contact Customer Care !',
+                                "nitification": 'The Account Has Not Been Activated, Please Contact The Customer Service',
 
                                 'uphone': username,
 
@@ -11035,7 +11035,7 @@ console.log('total deposit ' + total_deposit);
                             });
 
                                 ref11.child(userCredential.user.uid).set({
-                                "nitification": 'Please Contact Customer Care',
+                                "nitification": 'The Account Has Not Been Activated, Please Contact The Customer Service',
 
                                 'uphone': username,
 
