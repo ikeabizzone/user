@@ -9067,7 +9067,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
             console.log('ggggggggg  ' +regulator2);
 
 
-            if(regulator2 == 1)
+            if(regulator2 == 1 && max_task5 == task5)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9199,7 +9199,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-              else if(regulator2 == 2)
+              else if(regulator2 == 2 && max_task5 == task5)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9331,7 +9331,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-                  else if(regulator2 == 3)
+                  else if(regulator2 == 3 && max_task5 == task5)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9466,7 +9466,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-                          else if(regulator2 == 4)
+                          else if(regulator2 == 4 && max_task5 == task5)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9600,7 +9600,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-                     else if(regulator2 == 5)
+                     else if(regulator2 == 5 && max_task5 == task5)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9736,7 +9736,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
             
-                     else if(regulator2 == 6)
+                     else if(regulator2 == 6 && max_task5 == task5)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9871,7 +9871,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-                      else if(regulator2 == 7)
+                      else if(regulator2 == 7 && max_task5 == task5)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -10002,6 +10002,13 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
             }
 
 
+            else
+            {
+                document.getElementById("det5").style.display = "block"
+            document.getElementById("det4").style.display = "block"
+            }
+
+
 
 
             
@@ -10024,7 +10031,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
        document.getElementById("det5").style.display = "none"
             document.getElementById("det4").style.display = "none"
-            window.location = "mine.html";
+            window.location = "sign-in.html";
 
        }
 
