@@ -11001,24 +11001,10 @@ console.log('total deposit ' + total_deposit);
 
 
 
-           const usip = firebase.database().ref('ip_record').orderByChild('id_address').equalTo(userip);
+        //   const usip = firebase.database().ref('ip_record').orderByChild('id_address').equalTo(userip);
 
 
-                      usip.on("value", function (snapshot4) {
-                    if (snapshot4.exists()) {
-    
-                        const displayText22 = document.getElementById('bankacc12');
-    displayText22.style.display = 'block'; // Show the text
 
-    setTimeout(function() {
-        displayText22.style.display = 'none'; // Hide the text after 5 seconds
-    }, 3000); //
-    
-    
-                    }
-    
-                  else
-                  {
 
               console.log('noooooooooooooooooow');
 
@@ -11470,10 +11456,10 @@ console.log('total deposit ' + total_deposit);
 
 
 
-                  }
+              
     
     
-                });
+    
 
 
 
