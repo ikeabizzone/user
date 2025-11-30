@@ -11290,7 +11290,7 @@ const database = firebase.database();
 
                                        document.getElementById("det7").style.display = "block"
 
-                                         ref5 = firebase.database().ref().child("user-task").child(order_type).child(parseInt(total + 1));
+                                         ref5 = firebase.database().ref().child("user-task").child(order_type).child(parseInt(task5 + 1));
     
                         ref5.once("value").then(function (snapshot) {
     
@@ -12544,5 +12544,6 @@ else
 
 
 </html>
+
 
 
