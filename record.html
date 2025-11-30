@@ -10611,7 +10611,7 @@
                                                         
                                 
                                                                   <p data-v-1d451280="" class="scrwwcjt">
-                                                                <button data-v-1d451280="" class="van-button van-button--info van-button--normal" style="background-color: ${coll};" onclick='confirm2(${data.id})'>
+                                                                <button data-v-1d451280="" class="van-button van-button--info van-button--normal" style="background-color: ${coll};" onclick='confirm25(${data.id})'>
                                                                     <div data-v-1d451280="" class="van-button__content">
                                                                         <span data-v-1d451280="" class="van-button__text" >${data.status}</span></div>
                                                                         </button></p>
@@ -11242,11 +11242,500 @@ console.log('ffff      '+status3);
 
 
 
+  function confirm25(key) {
+
+                var today = new Date();
+            var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear() ;
+            var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+            console.log(date + ' ' + time);
+
+            console.log(o_type);
+
+
+
+
+
+console.log('hhhhhhhhhhhh      '+ date );
+
+console.log('ddddd      '+dtime);
+
+    if(max_task === task){
+                         status3 = 'Complete'
+                    }
+                    else
+                    {
+                        status3 = status2;
+                    }
+
+
+console.log('ffff      '+status3);
+
+
+
+
+          
+
+
+
+         console.log('hhhhhhhhhhhh      '+key);
+
+
+
+          var ref62 = firebase.database().ref().child("order_record").child(userid).child(key);
+          
+
+
+                ref62.on("value", function (snapshot4) {
+                    if (snapshot4.exists()) {
+
+
+
+                 
+                        status22 = snapshot4.val().status;
+                    
+
+
+                    }
+
+
+
+
+
+                    
+
+
+                    if(status22 == 'Complete')
+                    {
+
+                        console.log('status22 ' + status22);
+                       console.log('dtime ' + dtime);
+                        console.log('date ' + date);
+
+
+                    }
+
+                    else
+                    {
+
+                        
+        
+
+
+
+
+
+            if (status2 == 'Disable') {
+                window.location.href = "task.html";
+            }
+
+            else {
+
+
+
+                
+
+
+      
+
+
+                var ref51 = firebase.database().ref().child("order_record").child(userid).child(key);
+
+                ref51.once("value").then(function (snapshot) {
+
+                    if (snapshot.exists()) {
+
+
+                        firstname = snapshot.val().firstname;
+                        pimage = snapshot.val().pimage;
+                        order_number = snapshot.val().order_number;
+                        price = snapshot.val().price;
+                        cdate = snapshot.val().cdate;
+                        id = snapshot.val().id;
+                        descrip = snapshot.val().descrip;
+                        o_type = snapshot.val().o_type;
+                        sprice = snapshot.val().sprice;
+                        obonus = snapshot.val().bonus;
+                        serial = parseInt(snapshot.val().serial);
+
+
+
+                    }
+
+
+                    var t = parseInt(post_balance)+parseInt(sprice-price);
+                    var t2 = parseInt(post_balance);
+                    var dp = parseInt(dprofit)+parseInt(sprice-price);
+
+
+
+                    console.log("my balanve :"+ t);
+
+                    
+
+
+                       
+
+
+
+
+
+
+                    var ref9 = firebase.database().ref().child("my-task");
+
+               
+
+
+
+
+
+
+
+
+
+
+
+                    var database = firebase.database();
+
+
+                    if(o_type == 'Bonus Order')
+                    {
+
+
+                          database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
+                    
+
+                        'total_balance': t,
+                         'amount': parseInt(sprice-price),
+                       
+                        'pre_balance': t2,
+                        'title': 'Received Bonus Order',
+                        'cdate': date + ' ' + time,
+
+                       
+               
+                    });
+
+                     database.ref('userbalance').child(userid).child(parseInt(6000-user_balance)).set({
+                        'title': 'Received Bonus Order',
+                       
+                        'serial': user_balance,
+                       
+                        'amount': parseInt(sprice-price),
+                        'cdate': date + ' ' + time,
+               
+                    });
+
+
+                              database.ref('totalbalance').child(parseInt(6000000-total_balance)).set({
+                        'title': 'Received Bonus Order',
+
+                        'serial': total_balance,
+                       
+                        
+                        'amount': parseInt(sprice-price),
+                        'cdate': date + ' ' + time,
+                        'phone': phone,
+               
+                    });
+
+                    }
+
+                    else
+                    {
+
+                         database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
+                    
+
+                        'total_balance': t,
+                         'amount': parseInt(sprice-price),
+                       
+                        'pre_balance': t2,
+                        'title': 'Received Difference Prices',
+                        'cdate': date + ' ' + time,
+
+                       
+               
+                    });
+
+                     database.ref('userbalance').child(userid).child(parseInt(6000-user_balance)).set({
+                        'title': 'Received Difference Prices',
+                       
+                        'serial': user_balance,
+                       
+                        'amount': parseInt(sprice-price),
+                        'cdate': date + ' ' + time,
+               
+                    });
+
+
+                              database.ref('totalbalance').child(parseInt(6000000-total_balance)).set({
+                        'title': 'Received Difference Prices',
+
+                        'serial': total_balance,
+                       
+                        
+                        'amount': parseInt(sprice-price),
+                        'cdate': date + ' ' + time,
+                        'phone': phone,
+               
+                    });
+
+
+
+                    }
+
+
+
+                       
+
+
+                    
+              
+
+
+
+                     database.ref('mybalance').child(userid).set({
+                    
+
+                        'total_balance': t,
+                        
+                        'pre_balance': pre_balance,
+                       
+               
+                    });
+
+
+                   
+
+
+
+                    
+
+
+
+
+
+
+
+
+                    
+
+
+
+
+                    database.ref('order_record').child(userid).child(id).set({
+                        'firstname': firstname,
+
+                        'pimage': pimage,
+                        'order_number': order_number,
+                        'price': price,
+                        'cdate': cdate,
+                        'id': id,
+                        'descrip': descrip,
+                        'o_type': o_type,
+                        'sprice': sprice,
+                        'serial': serial,
+                        'bonus': obonus,
+                        'status': 'Complete'
+
+
+
+                    });
+
+
+
+
+                    console.log('date  :'+date)
+
+
+
+
+
+                      if(date == dtime)
+                    {
+
+                        database.ref('daily_profit').child(userid).set({
+                    
+
+                        'total_balance': dp,
+                        
+                        'tday': date,
+                       
+               
+                    });
+
+                    }
+                    else
+                    {
+
+                        database.ref('daily_profit').child(userid).set({
+                    
+
+                        'total_balance': parseInt(sprice-price),
+                        
+                        'tday': date,
+                       
+               
+                    });
+
+                    }
+
+
+
+
+
+                    if(t_amount == 0)
+                    {
+
+                             ref9.child(userid).set({
+
+
+                        'email': email,
+                      //  'passw': passw,
+                      'id': id2,
+                     
+                    //  'm_box':m_box,
+                       'max_task':max_task,
+                       
+                        'order_type':or_type,
+                         'phone': phone,
+                         'serial':serial2,
+                        //'icode': icode,
+                        'status': status3,
+                        
+                       // 'rdate': rdate,
+                      //  'uid': uid,
+                        'task': task,
+                       // 'my_code': my_code,
+                        
+                        
+                         't_amount':t_amount,
+
+
+
+
+
+                    }).then(() => {
+                      //  window.location.href = "record.html";
+
+                      const displayText220 = document.getElementById('not2');
+                       displayText220.style.display = 'block'; 
+
+                       const displayText2201 = document.getElementById('det2225');
+                       displayText2201.style.display = 'block'; 
+
+
+
+                            setTimeout(function() {
+       
+          
+                    window.location = "task.html";
+    }, 3000); 
+                    });
+                    
+
+                    }
+
+           
+
+                    else{
+
+                              ref9.child(userid).set({
+
+
+                        'email': email,
+                      //  'passw': passw,
+                      'id': id2,
+                     
+                     // 'm_box':m_box,
+                       'max_task':max_task,
+                       
+                        'order_type':or_type,
+                         'phone': phone,
+                         'serial':serial2,
+                        //'icode': icode,
+                        'status': status3,
+                        
+                       // 'rdate': rdate,
+                      //  'uid': uid,
+                        'task': task,
+                       // 'my_code': my_code,
+                        
+                        
+                         't_amount':t_amount,
+
+
+
+
+
+                    }).then(() => {
+                        const displayText220 = document.getElementById('not2');
+                       displayText220.style.display = 'block'; 
+
+                       const displayText2201 = document.getElementById('det2225');
+                       displayText2201.style.display = 'block'; 
+
+
+
+                            setTimeout(function() {
+       
+          
+                    window.location = "task.html";
+    }, 3000); 
+                    
+                    });
+                        
+                    }
+
+
+                    
+
+
+
+
+
+  
+
+
+                });
+
+
+
+           
+
+
+            }
+
+
+
+                    }
+
+                    
+
+                });
+
+
+
+
+
+
+
+
+      
+
+
+
+
+ 
+
+
+
+        }
+
 
 
 
     </script>
 </body>
-
 
 </html>
