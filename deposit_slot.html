@@ -4525,7 +4525,7 @@
         .van-dialog .van-dialog__confirm {
             background: #712098;
             color: #323233;
-            width: 100%;
+          
             height: 1.22667rem;
             font-weight: bolder;
             color: #fff !important;
@@ -4536,7 +4536,7 @@
             margin-top: .26667rem;
             background: #ececec;
             color: #000;
-            width: 100%;
+            
             height: 1.22667rem;
             font-weight: bolder;
             font-size: .48rem
@@ -10282,6 +10282,31 @@
           <img data-v-6f1b472b="" src="img/login-icon.5ab3d465.png" alt=""
                 style="width: 4.5vh; position: absolute; top: 2vh; right: 3vh;">
 
+                <div class="van-overlay" style="z-index: 2003;display: none;" id="det42225"></div>
+    <div role="dialog" class="van-dialog van-dialog--round-button singDialog"
+                                    aria-labelledby="NOTICE" style="z-index: 2019;display: none;" id="det19">
+                                    <div class="van-dialog__header">NOTICE</div>
+                                    <div class="van-dialog__content">
+                                        <div class="van-dialog__message van-dialog__message--has-title" id="noti">Do You Want To Continue With The Merchant Slots?</div>
+                                    </div>
+                                    <div class="van-goods-action van-dialog__footer" style="display: inline;"><button
+                                            class="van-button van-button--danger van-button--large van-goods-action-button van-goods-action-button--first van-goods-action-button--last van-goods-action-button--danger van-dialog__confirm"
+                                            size="large" onclick="confirm19()" style="background: red;">
+                                            <div class="van-button__content"><span class="van-button__text">Cancel</span>
+                                            </div>
+                                        </button>
+
+                                        <button
+                                            class="van-button van-button--danger van-button--large van-goods-action-button van-goods-action-button--first van-goods-action-button--last van-goods-action-button--danger van-dialog__confirm"
+                                            size="large" onclick="confirm20()">
+                                            <div class="van-button__content"><span class="van-button__text">YES</span>
+                                            </div>
+                                        </button>
+                                    
+                                    
+                                    </div>
+                                </div>
+
                 <p style="text-align: start;margin-top: 10px;">Current level:<span style="color: rgb(160, 74, 16);"> VIP 1</span></p>
                  <p style="text-align: start;margin-top: 10px;">৳<span id="tbalance"></span></p>
             <div data-v-6f1b472b="" style="text-align: justify; display: flex;">
@@ -10290,6 +10315,13 @@
                     <button data-v-6f1b472b=""
                     class="van-button van-button--default van-button--normal" onclick="validate()"
                     style="width: 48%; background: rgb(188, 43, 10);  color: rgb(255, 255, 255); font-size: 18px; height: 60px; margin-top: 8%;">
+                    <div data-v-6f1b472b="" class="van-button__content"><span data-v-6f1b472b=""
+                            class="van-button__text">10000</span></div>
+                </button>
+
+                         <button data-v-6f1b472b=""
+                    class="van-button van-button--default van-button--normal" 
+                    style="width: 48%; background: rgb(76, 45, 38);  color: rgb(255, 255, 255); font-size: 18px; height: 60px; margin-top: 8%;display: none;">
                     <div data-v-6f1b472b="" class="van-button__content"><span data-v-6f1b472b=""
                             class="van-button__text">10000</span></div>
                 </button>
@@ -10371,7 +10403,7 @@
     </div>
 
     <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2003; display: none;" id="bankacc2">
-        <div class="van-toast__text" id="err">congratulations!!Your Order is Ready</div>
+        <div class="van-toast__text" id="err">congratulations!! Your Order is Ready</div>
     </div>
         
 
@@ -10499,6 +10531,64 @@ var ref51 = firebase.database().ref().child("my-task").child(userid);
 
 
 
+       const database = firebase.database();
+
+            // ✅ Reference to the data
+            const expensesRef = database.ref('mybalance').child(userid);
+
+            expensesRef.on('value', (snapshot) => {
+                
+                snapshot.forEach((childSnapshot) => {
+                    total44 = snapshot.val().total_balance;
+                });
+
+
+
+                console.log(total44.toLocaleString('en'));
+
+                
+                     if((total44 == 0)){
+
+         $('#tbalance').html('0.00');
+         $('#abalance').html('0.00');
+
+      }
+
+      else{
+
+          $('#tbalance').html(total44.toLocaleString('en'));
+                $('#abalance').html(total44.toLocaleString('en'));
+
+      }
+
+
+              
+            });
+
+
+
+
+             const expensesRef2 = database.ref('deposit_slot').child(userid);
+
+            expensesRef2.on('value', (snapshot) => {
+                
+                snapshot.forEach((childSnapshot) => {
+                    damount = parseInt(snapshot.val().amount);
+                });
+
+
+
+                console.log(damount.toLocaleString('en'));
+
+     
+
+
+              
+            });
+
+
+
+
 
 
 
@@ -10538,60 +10628,7 @@ var ref51 = firebase.database().ref().child("my-task").child(userid);
 
 
 
-            const database = firebase.database();
-
-            // ✅ Reference to the data
-            const expensesRef = database.ref('mybalance').child(username);
-
-            expensesRef.on('value', (snapshot) => {
-                
-                snapshot.forEach((childSnapshot) => {
-                    total44 = snapshot.val().total_balance;
-                });
-
-
-
-                console.log(total44.toLocaleString('en'));
-
-                
-                     if((total44 == 0)){
-
-         $('#tbalance').html('0.00');
-         $('#abalance').html('0.00');
-
-      }
-
-      else{
-
-          $('#tbalance').html(total44.toLocaleString('en'));
-                $('#abalance').html(total44.toLocaleString('en'));
-
-      }
-
-
-              
-            });
-
-
-
-
-             const expensesRef2 = database.ref('deposit_slot').child(username);
-
-            expensesRef2.on('value', (snapshot) => {
-                
-                snapshot.forEach((childSnapshot) => {
-                    damount = parseInt(snapshot.val().amount);
-                });
-
-
-
-                console.log(damount.toLocaleString('en'));
-
-     
-
-
-              
-            });
+       
 
 
 
@@ -10604,46 +10641,36 @@ var ref51 = firebase.database().ref().child("my-task").child(userid);
                
             
 
-              if(damount==10000)
+              if( damount >= 10000 && damount <= 29999 )
               {
                   console.log('ok')
                  
                  console.log(userid);
 
 
-                 const displayText222 = document.getElementById('bankacc2');
+                 const displayText222 = document.getElementById('det42225');
     displayText222.style.display = 'block'; // Show the text
 
-    setTimeout(function() {
-        displayText222.style.display = 'none'; // Hide the text after 5 seconds
-    }, 3000);
-
-
-
- var ref5 = firebase.database().ref().child("order_record").child(phone);
-
-ref5.remove();
-
-
-var depo = database.ref('deposit_slot').child(phone);
+         const displayText2221 = document.getElementById('det19');
+    displayText2221.style.display = 'block'; // Show the text
 
 
 
 
+ var ref5 = firebase.database().ref().child("order_record").child(userid);
 
-   depo.set({
+//ref5.remove();
 
 
-      'amount': 0,
-      //  'passw': passw,
-      'phone': phone,
-  
+var depo = database.ref('deposit_slot').child(userid);
 
 
 
-    })
+
+
+
                  
-
+/*
 
  var ref9 = firebase.database().ref().child("my-task");
 
@@ -10661,7 +10688,7 @@ var depo = database.ref('deposit_slot').child(phone);
       'status': 'Active',
       't_amount': t_amount,
       // 'icode': icode,
-      'task': 0,
+      'task': task,
 
 
 
@@ -10670,6 +10697,8 @@ var depo = database.ref('deposit_slot').child(phone);
 
       window.location = "task.html";
     })
+
+    */
        
               }
               else
@@ -10682,6 +10711,620 @@ var depo = database.ref('deposit_slot').child(phone);
         displayText22.style.display = 'none'; // Hide the text after 5 seconds
     }, 3000); //
               }
+         }
+
+
+
+
+              function validate2() {
+
+               
+            
+
+              if( damount >= 30000 && damount <= 49999 )
+              {
+                  console.log('ok')
+                 
+                 console.log(userid);
+
+
+                 const displayText222 = document.getElementById('bankacc2');
+    displayText222.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText222.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000);
+
+
+
+ var ref5 = firebase.database().ref().child("order_record").child(userid);
+
+//ref5.remove();
+
+
+var depo = database.ref('deposit_slot').child(userid);
+
+
+
+
+
+
+                 
+/*
+
+ var ref9 = firebase.database().ref().child("my-task");
+
+                 ref9.child(userid).set({
+
+
+      'email': email,
+      'id': id,
+     // 'm_box': m_box,
+      'max_task': max_task,
+      'order_type': order_type,
+      //  'passw': passw,
+      'phone': phone,
+      'serial': serial3,
+      'status': 'Active',
+      't_amount': t_amount,
+      // 'icode': icode,
+      'task': task,
+
+
+
+
+    }).then(() => {
+
+      window.location = "task.html";
+    })
+
+    */
+       
+              }
+              else
+              {
+                console.log('not ok');
+                    const displayText22 = document.getElementById('bankacc');
+    displayText22.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText22.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000); //
+              }
+         }
+
+
+
+
+              function validate3() {
+
+               
+            
+
+              if( damount >= 50000 && damount <= 99999 )
+              {
+                  console.log('ok')
+                 
+                 console.log(userid);
+
+
+                 const displayText222 = document.getElementById('bankacc2');
+    displayText222.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText222.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000);
+
+
+
+ var ref5 = firebase.database().ref().child("order_record").child(userid);
+
+//ref5.remove();
+
+
+var depo = database.ref('deposit_slot').child(userid);
+
+
+
+
+
+
+                 
+/*
+
+ var ref9 = firebase.database().ref().child("my-task");
+
+                 ref9.child(userid).set({
+
+
+      'email': email,
+      'id': id,
+     // 'm_box': m_box,
+      'max_task': max_task,
+      'order_type': order_type,
+      //  'passw': passw,
+      'phone': phone,
+      'serial': serial3,
+      'status': 'Active',
+      't_amount': t_amount,
+      // 'icode': icode,
+      'task': task,
+
+
+
+
+    }).then(() => {
+
+      window.location = "task.html";
+    })
+
+    */
+       
+              }
+              else
+              {
+                console.log('not ok');
+                    const displayText22 = document.getElementById('bankacc');
+    displayText22.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText22.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000); //
+              }
+         }
+
+
+              function validate4() {
+
+               
+            
+
+              if( damount >= 100000 && damount <= 299999 )
+              {
+                  console.log('ok')
+                 
+                 console.log(userid);
+
+
+                 const displayText222 = document.getElementById('bankacc2');
+    displayText222.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText222.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000);
+
+
+
+ var ref5 = firebase.database().ref().child("order_record").child(userid);
+
+//ref5.remove();
+
+
+var depo = database.ref('deposit_slot').child(userid);
+
+
+
+
+
+
+                 
+/*
+
+ var ref9 = firebase.database().ref().child("my-task");
+
+                 ref9.child(userid).set({
+
+
+      'email': email,
+      'id': id,
+     // 'm_box': m_box,
+      'max_task': max_task,
+      'order_type': order_type,
+      //  'passw': passw,
+      'phone': phone,
+      'serial': serial3,
+      'status': 'Active',
+      't_amount': t_amount,
+      // 'icode': icode,
+      'task': task,
+
+
+
+
+    }).then(() => {
+
+      window.location = "task.html";
+    })
+
+    */
+       
+              }
+              else
+              {
+                console.log('not ok');
+                    const displayText22 = document.getElementById('bankacc');
+    displayText22.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText22.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000); //
+              }
+         }
+
+
+
+              function validate5() {
+
+               
+            
+
+              if( damount >= 300000 && damount <= 499999 )
+              {
+                  console.log('ok')
+                 
+                 console.log(userid);
+
+
+                 const displayText222 = document.getElementById('bankacc2');
+    displayText222.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText222.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000);
+
+
+
+ var ref5 = firebase.database().ref().child("order_record").child(userid);
+
+//ref5.remove();
+
+
+var depo = database.ref('deposit_slot').child(userid);
+
+
+
+
+
+
+                 
+/*
+
+ var ref9 = firebase.database().ref().child("my-task");
+
+                 ref9.child(userid).set({
+
+
+      'email': email,
+      'id': id,
+     // 'm_box': m_box,
+      'max_task': max_task,
+      'order_type': order_type,
+      //  'passw': passw,
+      'phone': phone,
+      'serial': serial3,
+      'status': 'Active',
+      't_amount': t_amount,
+      // 'icode': icode,
+      'task': task,
+
+
+
+
+    }).then(() => {
+
+      window.location = "task.html";
+    })
+
+    */
+       
+              }
+              else
+              {
+                console.log('not ok');
+                    const displayText22 = document.getElementById('bankacc');
+    displayText22.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText22.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000); //
+              }
+         }
+
+
+
+
+              function validate6() {
+
+               
+            
+
+              if( damount >= 500000 && damount <= 999999 )
+              {
+                  console.log('ok')
+                 
+                 console.log(userid);
+
+
+                 const displayText222 = document.getElementById('bankacc2');
+    displayText222.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText222.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000);
+
+
+
+ var ref5 = firebase.database().ref().child("order_record").child(userid);
+
+//ref5.remove();
+
+
+var depo = database.ref('deposit_slot').child(userid);
+
+
+
+
+
+
+                 
+/*
+
+ var ref9 = firebase.database().ref().child("my-task");
+
+                 ref9.child(userid).set({
+
+
+      'email': email,
+      'id': id,
+     // 'm_box': m_box,
+      'max_task': max_task,
+      'order_type': order_type,
+      //  'passw': passw,
+      'phone': phone,
+      'serial': serial3,
+      'status': 'Active',
+      't_amount': t_amount,
+      // 'icode': icode,
+      'task': task,
+
+
+
+
+    }).then(() => {
+
+      window.location = "task.html";
+    })
+
+    */
+       
+              }
+              else
+              {
+                console.log('not ok');
+                    const displayText22 = document.getElementById('bankacc');
+    displayText22.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText22.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000); //
+              }
+         }
+
+
+
+
+              function validate7() {
+
+               
+            
+
+              if( damount >= 1000000 && damount <= 1999999 )
+              {
+                  console.log('ok')
+                 
+                 console.log(userid);
+
+
+                 const displayText222 = document.getElementById('bankacc2');
+    displayText222.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText222.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000);
+
+
+
+ var ref5 = firebase.database().ref().child("order_record").child(userid);
+
+//ref5.remove();
+
+
+var depo = database.ref('deposit_slot').child(userid);
+
+
+
+
+
+
+                 
+/*
+
+ var ref9 = firebase.database().ref().child("my-task");
+
+                 ref9.child(userid).set({
+
+
+      'email': email,
+      'id': id,
+     // 'm_box': m_box,
+      'max_task': max_task,
+      'order_type': order_type,
+      //  'passw': passw,
+      'phone': phone,
+      'serial': serial3,
+      'status': 'Active',
+      't_amount': t_amount,
+      // 'icode': icode,
+      'task': task,
+
+
+
+
+    }).then(() => {
+
+      window.location = "task.html";
+    })
+
+    */
+       
+              }
+              else
+              {
+                console.log('not ok');
+                    const displayText22 = document.getElementById('bankacc');
+    displayText22.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText22.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000); //
+              }
+         }
+
+
+
+              function validate8() {
+
+               
+            
+
+              if( damount >= 2000000 )
+              {
+                  console.log('ok')
+                 
+                 console.log(userid);
+
+
+                 const displayText222 = document.getElementById('bankacc2');
+    displayText222.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText222.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000);
+
+
+
+ var ref5 = firebase.database().ref().child("order_record").child(userid);
+
+//ref5.remove();
+
+
+var depo = database.ref('deposit_slot').child(userid);
+
+
+
+
+
+
+                 
+/*
+
+ var ref9 = firebase.database().ref().child("my-task");
+
+                 ref9.child(userid).set({
+
+
+      'email': email,
+      'id': id,
+     // 'm_box': m_box,
+      'max_task': max_task,
+      'order_type': order_type,
+      //  'passw': passw,
+      'phone': phone,
+      'serial': serial3,
+      'status': 'Active',
+      't_amount': t_amount,
+      // 'icode': icode,
+      'task': task,
+
+
+
+
+    }).then(() => {
+
+      window.location = "task.html";
+    })
+
+    */
+       
+              }
+              else
+              {
+                console.log('not ok');
+                    const displayText22 = document.getElementById('bankacc');
+    displayText22.style.display = 'block'; // Show the text
+
+    setTimeout(function() {
+        displayText22.style.display = 'none'; // Hide the text after 5 seconds
+    }, 3000); //
+              }
+         }
+
+
+
+
+         function confirm20()
+         {
+
+
+                     const displayText222 = document.getElementById('det42225');
+    displayText222.style.display = 'none'; // Show the text
+
+         const displayText2221 = document.getElementById('det19');
+    displayText2221.style.display = 'none'; // Show the text
+
+
+     var ref9 = firebase.database().ref().child("my-task");
+
+                 ref9.child(userid).set({
+
+
+      'email': email,
+      'id': id,
+     // 'm_box': m_box,
+      'max_task': max_task,
+      'order_type': order_type,
+      //  'passw': passw,
+      'phone': phone,
+      'serial': serial3,
+      'status': 'Active',
+      't_amount': t_amount,
+      // 'icode': icode,
+      'task': task,
+
+
+
+
+    }).then(() => {
+
+      window.location = "task.html";
+    })
+
+
+         }
+
+
+
+              function confirm19()
+         {
+
+
+                     const displayText222 = document.getElementById('det42225');
+    displayText222.style.display = 'none'; // Show the text
+
+         const displayText2221 = document.getElementById('det19');
+    displayText2221.style.display = 'none'; // Show the text
+
+
          }
 
 
