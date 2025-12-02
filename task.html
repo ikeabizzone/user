@@ -10056,7 +10056,7 @@
                                      
                                     <div class="van-dialog__header">NOTICE</div>
                                     <div class="van-dialog__content">
-                                        <div class="van-dialog__message van-dialog__message--has-title">You have successfully completed all snatched orders. Please proceed with your withdrawal request immediately.</div>
+                                        <div class="van-dialog__message van-dialog__message--has-title" id="succes">You have successfully completed all snatched orders. Please proceed with your withdrawal request immediately.</div>
                                     </div>
                                     <div class="van-goods-action van-dialog__footer"><button
                                             class="van-button van-button--danger van-button--large van-goods-action-button van-goods-action-button--first van-goods-action-button--last van-goods-action-button--danger van-dialog__confirm"
@@ -10398,7 +10398,9 @@ var pre_balance2 = '0';
    var myt = '';  
    var myt2 = '';    
    var bonus5 = ''; 
-   var nowday5 = '';                       
+   var nowday5 = '';    
+   
+   var ordernoti = '';
                                 
 
 
@@ -10419,6 +10421,37 @@ var pre_balance2 = '0';
 
 
             var totaluser = firebase.database().ref().child("order_record").child(userid);
+
+            var ordern = firebase.database().ref().child("order-notification").child(userid);
+
+
+              ordern.once("value").then(function (snapshot) {
+
+
+
+                    if (snapshot.exists()) {
+
+
+
+                        ordernoti = snapshot.val().nitification;
+
+
+                        console.log(ordernoti);
+
+
+
+
+                    }
+
+                     $('#succes').html(ordernoti);
+
+
+
+
+
+
+
+                });
 
 
             totaluser.once("value").then(function (snapshot) {
@@ -11511,7 +11544,7 @@ var database = firebase.database();
 
            
 
-                database.ref('order_record').child(userid).child(id).set({
+                database.ref('order_record').child(userid).child(parseInt(total+1)).set({
                     'firstname': firstname,
 
                     'pimage': pimage,
