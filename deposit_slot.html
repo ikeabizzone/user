@@ -10539,7 +10539,7 @@ var ref51 = firebase.database().ref().child("my-task").child(userid);
             expensesRef.on('value', (snapshot) => {
                 
                 snapshot.forEach((childSnapshot) => {
-                    total44 = snapshot.val().total_balance;
+                    total44 = parseInt(snapshot.val().total_balance);
                 });
 
 
@@ -10641,7 +10641,7 @@ var ref51 = firebase.database().ref().child("my-task").child(userid);
                
             
 
-              if( damount >= 10000 && damount <= 29999 )
+              if( total44 >= 10000 && total44 <= 29999 )
               {
                   console.log('ok')
                  
@@ -10721,7 +10721,7 @@ var depo = database.ref('deposit_slot').child(userid);
                
             
 
-              if( damount >= 30000 && damount <= 49999 )
+              if( total44 >= 30000 && total44 <= 49999 )
               {
                   console.log('ok')
                  
@@ -10801,7 +10801,7 @@ var depo = database.ref('deposit_slot').child(userid);
                
             
 
-              if( damount >= 50000 && damount <= 99999 )
+              if( total44 >= 50000 && total44 <= 99999 )
               {
                   console.log('ok')
                  
@@ -10879,7 +10879,7 @@ var depo = database.ref('deposit_slot').child(userid);
                
             
 
-              if( damount >= 100000 && damount <= 299999 )
+              if( total44 >= 100000 && total44 <= 299999 )
               {
                   console.log('ok')
                  
@@ -10958,7 +10958,7 @@ var depo = database.ref('deposit_slot').child(userid);
                
             
 
-              if( damount >= 300000 && damount <= 499999 )
+              if( total44 >= 300000 && total44 <= 499999 )
               {
                   console.log('ok')
                  
@@ -11038,7 +11038,7 @@ var depo = database.ref('deposit_slot').child(userid);
                
             
 
-              if( damount >= 500000 && damount <= 999999 )
+              if( total44 >= 500000 && total44 <= 999999 )
               {
                   console.log('ok')
                  
@@ -11118,7 +11118,7 @@ var depo = database.ref('deposit_slot').child(userid);
                
             
 
-              if( damount >= 1000000 && damount <= 1999999 )
+              if( total44 >= 1000000 && total44 <= 1999999 )
               {
                   console.log('ok')
                  
@@ -11197,7 +11197,7 @@ var depo = database.ref('deposit_slot').child(userid);
                
             
 
-              if( damount >= 2000000 )
+              if( total44 >= 2000000 )
               {
                   console.log('ok')
                  
@@ -11346,4 +11346,3 @@ var depo = database.ref('deposit_slot').child(userid);
 </body>
 
 </html>
-
