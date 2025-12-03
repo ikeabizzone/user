@@ -11091,7 +11091,7 @@ console.log('ffff      '+status3);
                     }
 
 
-                    if(max_task == usertask)
+                    if(max_task == task)
                     {
 
                          ref9.child(userid).set({
@@ -11509,6 +11509,60 @@ console.log('ddddd      '+dtime);
 
 
 
+       if(max_task == task)
+                    {
+
+                         ref9.child(userid).set({
+
+
+                        'email': email,
+                      //  'passw': passw,
+                      'id': id2,
+                     
+                    //  'm_box':m_box,
+                       'max_task':max_task,
+                       
+                        'order_type':or_type,
+                         'phone': phone,
+                         'serial':serial2,
+                        //'icode': icode,
+                        'status': 'Complete',
+                        
+                       // 'rdate': rdate,
+                      //  'uid': uid,
+                        'task': task,
+                       // 'my_code': my_code,
+                        
+                        
+                         't_amount':t_amount,
+
+
+
+
+
+                    }).then(() => {
+                      //  window.location.href = "record.html";
+
+                      const displayText220 = document.getElementById('not2');
+                       displayText220.style.display = 'block'; 
+
+                       const displayText2201 = document.getElementById('det2225');
+                       displayText2201.style.display = 'block'; 
+
+
+
+                            setTimeout(function() {
+       
+          
+                    window.location = "task.html";
+    }, 3000); 
+                    });
+
+                    }
+
+                    else
+                    {
+                        
       ref9.child(userid).set({
 
 
@@ -11554,6 +11608,10 @@ console.log('ddddd      '+dtime);
                     window.location = "task.html";
     }, 3000); 
                     });
+
+
+                    }
+
 
                     
 
