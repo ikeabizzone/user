@@ -10235,6 +10235,7 @@
 
         var status3 = '';
         var obonus = '';
+        var usertask = '';
 
 
 
@@ -10269,6 +10270,7 @@
                         status2 = snapshot4.val().status;
                       //  uid = snapshot4.val().uid;
                         task = parseInt(snapshot4.val().task+1);
+                        usertask = parseInt(snapshot4.val().task);
                        
                         
                         t_amount = parseInt(snapshot4.val().t_amount);
@@ -10281,6 +10283,7 @@
                     }
 
                     console.log('task  ' + parseInt(task));
+                    console.log('user task  ' + parseInt(usertask));
                     console.log('max_task  ' + parseInt(max_task));
                     console.log('serial2  ' + parseInt(serial2));
 
@@ -10769,7 +10772,7 @@ console.log('hhhhhhhhhhhh      '+ date );
 
 console.log('ddddd      '+dtime);
 
-    if(max_task === task){
+    if(max_task === usertask){
                          status3 = 'Complete'
                     }
                     else
@@ -11088,8 +11091,60 @@ console.log('ffff      '+status3);
                     }
 
 
+                    if(max_task == usertask)
+                    {
+
+                         ref9.child(userid).set({
 
 
+                        'email': email,
+                      //  'passw': passw,
+                      'id': id2,
+                     
+                    //  'm_box':m_box,
+                       'max_task':max_task,
+                       
+                        'order_type':or_type,
+                         'phone': phone,
+                         'serial':serial2,
+                        //'icode': icode,
+                        'status': 'Complete',
+                        
+                       // 'rdate': rdate,
+                      //  'uid': uid,
+                        'task': task,
+                       // 'my_code': my_code,
+                        
+                        
+                         't_amount':t_amount,
+
+
+
+
+
+                    }).then(() => {
+                      //  window.location.href = "record.html";
+
+                      const displayText220 = document.getElementById('not2');
+                       displayText220.style.display = 'block'; 
+
+                       const displayText2201 = document.getElementById('det2225');
+                       displayText2201.style.display = 'block'; 
+
+
+
+                            setTimeout(function() {
+       
+          
+                    window.location = "task.html";
+    }, 3000); 
+                    });
+
+                    }
+
+                    else
+                    {
+                        
       ref9.child(userid).set({
 
 
@@ -11135,6 +11190,12 @@ console.log('ffff      '+status3);
                     window.location = "task.html";
     }, 3000); 
                     });
+
+
+                    }
+
+
+
 
                     
 
@@ -11518,4 +11579,3 @@ console.log('ddddd      '+dtime);
 </body>
 
 </html>
-
